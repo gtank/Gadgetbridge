@@ -26,7 +26,6 @@ import java.util.UUID;
 import nodomain.freeyourgadget.gadgetbridge.R;
 import nodomain.freeyourgadget.gadgetbridge.impl.GBDevice;
 import nodomain.freeyourgadget.gadgetbridge.model.Alarm;
-import nodomain.freeyourgadget.gadgetbridge.model.DeviceService;
 import nodomain.freeyourgadget.gadgetbridge.model.ServiceCommand;
 import nodomain.freeyourgadget.gadgetbridge.util.GB;
 
@@ -34,6 +33,7 @@ import static nodomain.freeyourgadget.gadgetbridge.model.DeviceService.ACTION_CA
 import static nodomain.freeyourgadget.gadgetbridge.model.DeviceService.ACTION_CONNECT;
 import static nodomain.freeyourgadget.gadgetbridge.model.DeviceService.ACTION_DELETEAPP;
 import static nodomain.freeyourgadget.gadgetbridge.model.DeviceService.ACTION_DISCONNECT;
+import static nodomain.freeyourgadget.gadgetbridge.model.DeviceService.ACTION_FACTORY_RESET;
 import static nodomain.freeyourgadget.gadgetbridge.model.DeviceService.ACTION_FETCH_ACTIVITY_DATA;
 import static nodomain.freeyourgadget.gadgetbridge.model.DeviceService.ACTION_FIND_DEVICE;
 import static nodomain.freeyourgadget.gadgetbridge.model.DeviceService.ACTION_INSTALL;
@@ -41,6 +41,7 @@ import static nodomain.freeyourgadget.gadgetbridge.model.DeviceService.ACTION_NO
 import static nodomain.freeyourgadget.gadgetbridge.model.DeviceService.ACTION_NOTIFICATION_GENERIC;
 import static nodomain.freeyourgadget.gadgetbridge.model.DeviceService.ACTION_NOTIFICATION_SMS;
 import static nodomain.freeyourgadget.gadgetbridge.model.DeviceService.ACTION_REBOOT;
+import static nodomain.freeyourgadget.gadgetbridge.model.DeviceService.ACTION_FACTORY_RESET;
 import static nodomain.freeyourgadget.gadgetbridge.model.DeviceService.ACTION_REQUEST_APPINFO;
 import static nodomain.freeyourgadget.gadgetbridge.model.DeviceService.ACTION_REQUEST_DEVICEINFO;
 import static nodomain.freeyourgadget.gadgetbridge.model.DeviceService.ACTION_REQUEST_SCREENSHOT;
@@ -201,6 +202,10 @@ public class DeviceCommunicationService extends Service {
             }
             case ACTION_REBOOT: {
                 mDeviceSupport.onReboot();
+                break;
+            }
+            case ACTION_FACTORY_RESET: {
+                mDeviceSupport.onFactoryReset();
                 break;
             }
             case ACTION_FETCH_ACTIVITY_DATA: {

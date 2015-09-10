@@ -210,6 +210,7 @@ public class MiBandSupport extends AbstractBTLEDeviceSupport {
     private static final byte[] startVibrate = new byte[]{MiBandService.COMMAND_SEND_NOTIFICATION, 1};
     private static final byte[] stopVibrate = new byte[]{MiBandService.COMMAND_STOP_MOTOR_VIBRATE};
     private static final byte[] reboot = new byte[]{MiBandService.COMMAND_REBOOT};
+    private static final byte[] factory_reset = new byte[]{MiBandService.COMMAND_FACTORY_RESET};
 
     private byte[] getNotification(long vibrateDuration, int vibrateTimes, int flashTimes, int flashColour, int originalColour, long flashDuration) {
         byte[] vibrate = new byte[]{MiBandService.COMMAND_SEND_NOTIFICATION, (byte) 1};
@@ -493,6 +494,17 @@ public class MiBandSupport extends AbstractBTLEDeviceSupport {
             builder.queue(getQueue());
         } catch (IOException ex) {
             LOG.error("Unable to reboot MI", ex);
+        }
+    }
+
+    @Override
+    public void onFactoryReset() {
+        try {
+            TransactionBuilder builder = performInitialized("Factory Reset");
+            builder.write(getCharacteristic(MiBandService.UUID_CHARACTERISTIC_CONTROL_POINT), factory_reset);
+            builder.queue(getQueue());
+        } catch (IOException ex) {
+            LOG.error("Unable to reset MI to factory default", ex);
         }
     }
 

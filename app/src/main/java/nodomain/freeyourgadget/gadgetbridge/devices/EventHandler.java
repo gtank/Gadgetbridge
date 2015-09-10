@@ -41,6 +41,8 @@ public interface EventHandler {
 
     void onReboot();
 
+    void onFactoryReset();
+
     void onFindDevice(boolean start);
 
     void onScreenshotReq();

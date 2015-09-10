@@ -142,6 +142,8 @@ public class MiBandService {
 
     public static final byte COMMAND_SEND_NOTIFICATION = 0x8;
 
+    public static final byte COMMAND_FACTORY_RESET = 0x9;
+
     public static final byte COMMAND_CONFIRM_ACTIVITY_DATA_TRANSFER_COMPLETE = 0xa;
 
     public static final byte COMMAND_SYNC = 0xb;
@@ -158,7 +160,6 @@ public class MiBandService {
 
 	public static final COMMAND_SET_REALTIME_STEPS_NOTIFICATION = 0x3t
 
-	public static final byte COMMAND_FACTORY_RESET = 0x9t;
 
 	public static final int COMMAND_SET_COLOR_THEME = et;
 

@@ -26,6 +26,7 @@ public interface DeviceService extends EventHandler {
     static final String ACTION_DELETEAPP = PREFIX + ".action.deleteapp";
     static final String ACTION_INSTALL = PREFIX + ".action.install";
     static final String ACTION_REBOOT = PREFIX + ".action.reboot";
+    static final String ACTION_FACTORY_RESET = PREFIX + ".action.factory_reset";
     static final String ACTION_FETCH_ACTIVITY_DATA = PREFIX + ".action.fetch_activity_data";
     static final String ACTION_DISCONNECT = PREFIX + ".action.disconnect";
     static final String ACTION_FIND_DEVICE = PREFIX + ".action.find_device";

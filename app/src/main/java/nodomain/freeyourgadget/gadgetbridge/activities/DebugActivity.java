@@ -44,6 +44,7 @@ public class DebugActivity extends Activity {
     private Button setMusicInfoButton;
     private Button setTimeButton;
     private Button rebootButton;
+    private Button factoryResetButton;
     private Button exportDBButton;
     private Button importDBButton;
     private EditText editContent;
@@ -148,6 +149,15 @@ public class DebugActivity extends Activity {
                 GBApplication.deviceService().onReboot();
             }
         });
+
+        factoryResetButton = (Button) findViewById(R.id.factoryResetButton);
+        factoryResetButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                GBApplication.deviceService().onFactoryReset();
+            }
+        });
+
 
         setMusicInfoButton = (Button) findViewById(R.id.setMusicInfoButton);
         setMusicInfoButton.setOnClickListener(new View.OnClickListener() {

@@ -208,6 +208,13 @@ public class ServiceDeviceSupport implements DeviceSupport {
         delegate.onReboot();
     }
 
+    public void onFactoryReset() {
+        if (checkBusy("factory reset")) {
+            return;
+        }
+        delegate.onFactoryReset();
+    }
+
     @Override
     public void onFindDevice(boolean start) {
         if (checkBusy("find device")) {

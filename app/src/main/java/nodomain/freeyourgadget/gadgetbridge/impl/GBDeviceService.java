@@ -174,6 +174,12 @@ public class GBDeviceService implements DeviceService {
     }
 
     @Override
+    public void onFactoryReset() {
+        Intent intent = createIntent().setAction(ACTION_FACTORY_RESET);
+        invokeService(intent);
+    }
+
+    @Override
     public void onFindDevice(boolean start) {
         Intent intent = createIntent().setAction(ACTION_FIND_DEVICE)
                 .putExtra(EXTRA_FIND_START, start);
